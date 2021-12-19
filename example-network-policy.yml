@@ -14,22 +14,22 @@ spec:
   ingress:
   - from:
     - ipBlock:
-        cidr: 172.17.0.0/16
+        cidr: 172.17.0.6
         except:
         - 172.17.1.0/24
     - namespaceSelector:
         matchLabels:
-          project: myproject
+          project: default
     - podSelector:
         matchLabels:
-          role: frontend
+          role: myapp-front
     ports:
     - protocol: TCP
-      port: 6379
+      port: 8600
   egress:
   - to:
     - ipBlock:
-        cidr: 10.0.0.0/24
+        cidr: 172.17.0.6
     ports:
     - protocol: TCP
-      port: 5978
+      port: 8700

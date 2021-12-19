@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-back
+  namespace: default
+spec:
+  ports:
+    - name: web
+      port: 8700
+  selector:
+    app: nginx
+  type: ClusterIP
